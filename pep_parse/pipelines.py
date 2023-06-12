@@ -1,9 +1,7 @@
 import csv
 import datetime
 from collections import defaultdict
-
 from pathlib import Path
-
 
 BASE_DIR = Path(__file__).parent.parent
 
