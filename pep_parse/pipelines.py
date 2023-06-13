@@ -1,9 +1,7 @@
 import csv
 import datetime
 from collections import defaultdict
-from pathlib import Path
-
-BASE_DIR = Path(__file__).parent.parent
+from .settings import BASE_DIR
 
 
 class PepParsePipeline:
@@ -21,7 +19,7 @@ class PepParsePipeline:
         file_name = results_dir / f'status_summary_{time}.csv'
         results_dir.mkdir(exist_ok=True)
         with open(file_name, 'w', encoding='utf-8') as file:
-            results_writer = csv.writer(file)
+            results_writer = csv.writer(file, quoting=csv.QUOTE_MINIMAL)
             results_writer.writerows(
                 (
                     ('Статус', 'Количество'),
